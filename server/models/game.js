@@ -3,14 +3,14 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const gameSchema = new Schema({
-    title: String,
-    year: Number,
-    developer: String,
-    publisher: String,
-    ign_rating: Number,
-    description: String,
-    genre: Array,
-    recommended: Boolean,
+  title: String,
+  year: Number,
+  developer: String,
+  publisher: String,
+  ign_rating: Number,
+  description: String,
+  genre: Array,
+  recommended: Boolean,
 });
 
 const Game = mongoose.model("Game", gameSchema);
