@@ -11,6 +11,7 @@ const gameSchema = new Schema({
   description: String,
   genre: Array,
   recommended: Boolean,
+  cover_url: String,
 });
 
 const Game = mongoose.model("Game", gameSchema);
