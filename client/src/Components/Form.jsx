@@ -67,6 +67,11 @@ export default function Form({ setGames, games }) {
         placeholder="Description"
         onChange={handleFormData}
       />
+      <input
+        name="cover_url"
+        placeholder="Cover URL"
+        onChange={handleFormData}
+      />
       <fieldset onChange={handleFormData} name="genre" required>
         <input type="checkbox" name="genre" value="Action " id="action" />
         <label htmlFor="action">Action</label>
@@ -85,6 +90,7 @@ export default function Form({ setGames, games }) {
         <label htmlFor="rpg">RPG</label>
         <input type="checkbox" name="genre" value="Racing " id="racing" />
         <label htmlFor="racing">Racing</label>
+
         <input
           type="checkbox"
           name="genre"
@@ -100,13 +106,11 @@ export default function Form({ setGames, games }) {
         />
         <label htmlFor="turnbasedstrategy">Turn-Based Strategy</label>
       </fieldset>
-      <input type="checkbox" name="recommended" onChange={handleFormData} />
-      <label htmlFor="recommended">Recommended</label>
-      <input
-        name="cover_url"
-        placeholder="Cover URL"
-        onChange={handleFormData}
-      />
+      <div id="recommenddiv">
+        <input type="checkbox" name="recommended" onChange={handleFormData} />
+        <label htmlFor="recommended">Recommended</label>
+      </div>
+
       <button>Submit</button>
     </form>
   );
