@@ -1,7 +1,7 @@
 export default function Game({ games, deleteGame }) {
   return games.map((game) => {
     return (
-      <div key={game._id}>
+      <div key={game._id} class="game">
         <h2>{game.title}</h2>
         <img
           className="gamecover"

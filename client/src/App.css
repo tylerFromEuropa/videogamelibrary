@@ -1,3 +1,31 @@
+* {
+  margin: 0px;
+}
+
+html {
+  background-image: url("https://cf.geekdo-images.com/fSUq9KEec2doJsukBl8mYg__original/img/w2udATqZIxRgo-bz5On3vNrbIj4=/0x0/filters:format(png)/pic6611444.png");
+  color: white;
+}
+
+#root {
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+}
+
+div {
+  text-align: center;
+}
+
+.game {
+  margin: 20px 20px;
+  padding: 20px 20px;
+  border-bottom: 3px solid white;
+  background-color: rgba(0, 0, 0, 0.508);
+}
+
 .gamecover {
   max-width: 300px;
   max-height: 300px;
