@@ -1,13 +1,24 @@
-export default function Game({ games }) {
+export default function Game({ games, deleteGame }) {
   return games.map((game) => {
     return (
       <div key={game._id}>
         <h2>{game.title}</h2>
-        <img className="gamecover" src={game.cover_url} alt={game.title} />
+        <img
+          className="gamecover"
+          src={game.cover_url}
+          alt={game.title}
+          onError={({ currentTarget }) => {
+            currentTarget.onerror = null; // prevents looping
+            currentTarget.src = "https://placehold.co/600x400";
+          }}
+        />
         <p>{game.description}</p>
         <p>Year: {game.year}</p>
         <p>Genre: {game.genre}</p>
         <p>Rating: {game.ign_rating}</p>
+        <button onClick={() => deleteGame(game._id)}>
+          This game can go in the bin!
+        </button>
       </div>
     );
   });
