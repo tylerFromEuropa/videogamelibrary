@@ -10,7 +10,7 @@ const gameSchema = new Schema({
   ign_rating: Number,
   description: String,
   genre: Array,
-  recommended: Boolean,
+  recommended: String,
   cover_url: String,
 });
 

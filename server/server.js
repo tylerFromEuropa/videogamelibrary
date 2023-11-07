@@ -3,6 +3,7 @@ const cors = require("cors");
 require("dotenv").config();
 const app = express();
 app.use(cors());
+app.use(express.json());
 const PORT = 8080;
 
 const mongoose = require("mongoose");
@@ -16,6 +17,11 @@ app.get("/", (_, response) => {
 app.get("/games", async (request, response) => {
   const games = await Game.find(request.query);
   response.json(games);
+});
+
+app.post("/games", async (request, response) => {
+  const newGame = await Game.create(request.body);
+  response.json(newGame);
 });
 
 app.listen(PORT, () => console.log(`App is running on port ${PORT}`));
