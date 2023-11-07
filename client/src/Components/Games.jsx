@@ -2,7 +2,7 @@ export default function Game({ games, deleteGame }) {
   const reversedGames = games.toReversed();
   return reversedGames.map((game) => {
     return (
-      <div key={game._id} class="game">
+      <div key={game._id} className="game">
         <h2>{game.title}</h2>
         <img
           className="gamecover"
