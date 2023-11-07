@@ -1,5 +1,6 @@
 export default function Game({ games, deleteGame }) {
-  return games.map((game) => {
+  const reversedGames = games.toReversed();
+  return reversedGames.map((game) => {
     return (
       <div key={game._id} class="game">
         <h2>{game.title}</h2>
