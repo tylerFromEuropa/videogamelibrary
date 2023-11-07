@@ -24,4 +24,9 @@ app.post("/games", async (request, response) => {
   response.json(newGame);
 });
 
+app.delete("/games/:id", async (request, response) => {
+  const deletedGame = await Game.findByIdAndDelete(request.params.id);
+  response.json(deletedGame);
+});
+
 app.listen(PORT, () => console.log(`App is running on port ${PORT}`));

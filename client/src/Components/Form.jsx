@@ -34,33 +34,79 @@ export default function Form({ setGames, games }) {
 
   return (
     <form onSubmit={submitForm}>
-      <input name="title" placeholder="Title" onChange={handleFormData} />
-      <input type="number" name="year" placeholder="Year" onChange={handleFormData} />
-      <input name="developer" placeholder="Developer" onChange={handleFormData} />
-      <input name="publisher" placeholder="Publisher" onChange={handleFormData} />
-      <input type="number" name="ign_rating" placeholder="Rating" onChange={handleFormData} />
-      <input name="description" placeholder="Description" onChange={handleFormData} />
-      <fieldset onChange={handleFormData} name="genre">
+      <input
+        required
+        name="title"
+        placeholder="Title"
+        onChange={handleFormData}
+      />
+      <input
+        type="number"
+        name="year"
+        placeholder="Year"
+        onChange={handleFormData}
+      />
+      <input
+        name="developer"
+        placeholder="Developer"
+        onChange={handleFormData}
+      />
+      <input
+        name="publisher"
+        placeholder="Publisher"
+        onChange={handleFormData}
+      />
+      <input
+        type="number"
+        name="ign_rating"
+        placeholder="Rating"
+        onChange={handleFormData}
+      />
+      <input
+        name="description"
+        placeholder="Description"
+        onChange={handleFormData}
+      />
+      <fieldset onChange={handleFormData} name="genre" required>
         <input type="checkbox" name="genre" value="Action " id="action" />
-        <label for="action">Action</label>
+        <label htmlFor="action">Action</label>
         <input type="checkbox" name="genre" value="Adventure " id="adventure" />
-        <label for="adventure">Adventure</label>
-        <input type="checkbox" name="genre" value="Simulation " id="simulation" />
-        <label for="simulation">Simulation</label>
+        <label htmlFor="adventure">Adventure</label>
+        <input
+          type="checkbox"
+          name="genre"
+          value="Simulation "
+          id="simulation"
+        />
+        <label htmlFor="simulation">Simulation</label>
         <input type="checkbox" name="genre" value="Horror " id="horror" />
-        <label for="horror">Horror</label>
+        <label htmlFor="horror">Horror</label>
         <input type="checkbox" name="genre" value="RPG " id="rpg" />
-        <label for="rpg">RPG</label>
+        <label htmlFor="rpg">RPG</label>
         <input type="checkbox" name="genre" value="Racing " id="racing" />
-        <label for="racing">Racing</label>
-        <input type="checkbox" name="genre" value="Real-Time Strategy " id="realtimestrategy" />
-        <label for="realtimestrategy">Real-Time Strategy</label>
-        <input type="checkbox" name="genre" value="Turn-Based Strategy" id="turnbasedstrategy" />
-        <label for="turnbasedstrategy">Turn-Based Strategy</label>
+        <label htmlFor="racing">Racing</label>
+        <input
+          type="checkbox"
+          name="genre"
+          value="Real-Time Strategy "
+          id="realtimestrategy"
+        />
+        <label htmlFor="realtimestrategy">Real-Time Strategy</label>
+        <input
+          type="checkbox"
+          name="genre"
+          value="Turn-Based Strategy"
+          id="turnbasedstrategy"
+        />
+        <label htmlFor="turnbasedstrategy">Turn-Based Strategy</label>
       </fieldset>
       <input type="checkbox" name="recommended" onChange={handleFormData} />
-      <label for="recommended">Recommended</label>
-      <input name="cover_url" placeholder="Cover URL" onChange={handleFormData} />
+      <label htmlFor="recommended">Recommended</label>
+      <input
+        name="cover_url"
+        placeholder="Cover URL"
+        onChange={handleFormData}
+      />
       <button>Submit</button>
     </form>
   );
