@@ -1,8 +1,11 @@
-import Game from "./Components/Games";
+import Games from "./Components/Games";
 import Form from "./Components/Form";
+import Home from "./Page/Home";
 import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+
 
 function App() {
   const [games, setGames] = useState([]);
@@ -26,12 +29,24 @@ function App() {
   }
 
   return (
-    <>
+    <BrowserRouter>
+
       <h1>Video game library</h1>
       <p>Our most recommended games in the world. And a few that suck.</p>
-      <Form setGames={setGames} games={games} />
-      <Game games={games} deleteGame={deleteGame} />
-    </>
+      <Routes>
+        <Route path="/" element={<Home
+              games={games}
+              setGames={setGames}
+              deleteGame={deleteGame}
+            />} />
+        <Route path="/game/:id" element={
+          <Games />
+        } />
+      </Routes>
+
+      {/* <Form setGames={setGames} games={games} /> */}
+      {/* <Games games={games} deleteGame={deleteGame} /> */}
+    </BrowserRouter>
   );
 }
 export default App;

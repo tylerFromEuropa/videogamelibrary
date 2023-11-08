@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 
-export default function Form({ setGames, games }) {
+export default function Form({ setGames, games, game, setGame }) {
+
   const [allGenre, setAllGenre] = useState([]);
   const [formData, setFormData] = useState({
     title: "",
@@ -24,16 +25,25 @@ export default function Form({ setGames, games }) {
     }
   }
 
-  async function submitForm(event) {
+  async function addGame(event) {
     event.preventDefault();
-    console.log(formData);
+    // console.log(formData);
     const API = "http://localhost:8080/games";
     const res = await axios.post(API, formData);
     setGames([...games, res.data]);
   }
 
+  async function updateGame(event) {
+    event.preventDefault();
+
+    const API = `http://localhost:8080/games/${game._id}`
+    await axios.put(API, formData)
+
+    setGame(formData)
+  }
+
   return (
-    <form onSubmit={submitForm}>
+    <form onSubmit={game?.name ? updateGame : addGame}>
       <h2>Create a new entry</h2>
       <div className="formfields">
         <div className="formpart">

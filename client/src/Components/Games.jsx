@@ -1,4 +1,4 @@
-export default function Game({ games, deleteGame }) {
+export default function Games({ games, deleteGame, updateGame }) {
   const reversedGames = games.toReversed();
   return reversedGames.map((game) => {
     return (
