@@ -3,23 +3,18 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Form from "../Components/Form";
 
-export default function Game () {
-
+export default function Game() {
   const [game, setGame] = useState({});
   const params = useParams();
-  
+
   useEffect(() => {
-
-    getGame()
-
-  }, [])
+    getGame();
+  }, []);
 
   async function getGame() {
-
-    const API = `http://localhost:8080/games?_id=${params.id}`
+    const API = `http://localhost:8080/games?_id=${params.id}`;
     const res = await axios.get(API);
     setGame(res.data[0]);
-
   }
 
   return (
@@ -38,8 +33,7 @@ export default function Game () {
       <p>Year: {game.year}</p>
       <p>Genre: {game.genre}</p>
       <p>Rating: {game.ign_rating}</p>
-      {game.title && <Form game={game} setGame={setGame}/>  }
+      {game.title && <Form game={game} setGame={setGame} getGame={getGame} />}
     </div>
-  )
-
+  );
 }

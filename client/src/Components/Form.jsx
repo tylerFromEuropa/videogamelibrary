@@ -1,20 +1,21 @@
 import { useState } from "react";
 import axios from "axios";
 
-export default function Form({ setGames, games, game, setGame }) {
-
+export default function Form({ setGames, games, game, setGame, getGame }) {
   const [allGenre, setAllGenre] = useState([]);
-  const [formData, setFormData] = useState({
-    title: "",
-    year: 0,
-    developer: "",
-    publisher: "",
-    ign_rating: 0,
-    description: "",
-    genre: [],
-    recommended: "",
-    cover_url: "",
-  });
+  const [formData, setFormData] = useState(
+    game ?? {
+      title: "",
+      year: 0,
+      developer: "",
+      publisher: "",
+      ign_rating: 0,
+      description: "",
+      genre: [],
+      recommended: "",
+      cover_url: "",
+    }
+  );
 
   function handleFormData(e) {
     if (e.target.name === "genre") {
@@ -27,7 +28,6 @@ export default function Form({ setGames, games, game, setGame }) {
 
   async function addGame(event) {
     event.preventDefault();
-    // console.log(formData);
     const API = "http://localhost:8080/games";
     const res = await axios.post(API, formData);
     setGames([...games, res.data]);
@@ -35,59 +35,70 @@ export default function Form({ setGames, games, game, setGame }) {
 
   async function updateGame(event) {
     event.preventDefault();
-
-    const API = `http://localhost:8080/games/${game._id}`
-    await axios.put(API, formData)
-
-    setGame(formData)
+    const API = `http://localhost:8080/games/${game._id}`;
+    const res = await axios.put(API, formData);
+    setGame(formData);
+    console.log(res.data[0]);
   }
 
   return (
-    <form onSubmit={game?.name ? updateGame : addGame}>
+    <form onSubmit={game?.title ? updateGame : addGame}>
       <h2>Create a new entry</h2>
       <div className="formfields">
         <div className="formpart">
           <input
+            value={formData.title}
             required
             name="title"
             placeholder="Title"
             onChange={handleFormData}
           />
           <input
+            value={formData.year}
             type="number"
             name="year"
             placeholder="Year"
             onChange={handleFormData}
           />
           <input
+            value={formData.developer}
             name="developer"
             placeholder="Developer"
             onChange={handleFormData}
           />
           <input
+            value={formData.publisher}
             name="publisher"
             placeholder="Publisher"
             onChange={handleFormData}
           />
           <input
+            value={formData.ign_rating}
             type="number"
             name="ign_rating"
             placeholder="Rating"
             onChange={handleFormData}
           />
           <input
+            value={formData.description}
             name="description"
             placeholder="Description"
             onChange={handleFormData}
           />
           <input
+            value={formData.cover_url}
             name="cover_url"
             placeholder="Cover URL"
             onChange={handleFormData}
           />
         </div>
         <div className="formpart">
-          <fieldset onChange={handleFormData} name="genre" required>
+          <fieldset
+            onChange={handleFormData}
+            name="genre"
+            required
+            value={formData.genre}
+          >
             <input type="checkbox" name="genre" value="Action " id="action" />
             <label htmlFor="action">Action</label>
             <input
@@ -128,6 +139,7 @@ export default function Form({ setGames, games, game, setGame }) {
           </fieldset>
           <div id="recommenddiv">
             <input
+              value={formData.recommended}
               type="checkbox"
               name="recommended"
               onChange={handleFormData}

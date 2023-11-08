@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-
+import Game from "./Page/Game";
 
 function App() {
   const [games, setGames] = useState([]);
@@ -30,18 +30,16 @@ function App() {
 
   return (
     <BrowserRouter>
-
       <h1>Video game library</h1>
       <p>Our most recommended games in the world. And a few that suck.</p>
       <Routes>
-        <Route path="/" element={<Home
-              games={games}
-              setGames={setGames}
-              deleteGame={deleteGame}
-            />} />
-        <Route path="/game/:id" element={
-          <Games />
-        } />
+        <Route
+          path="/"
+          element={
+            <Home games={games} setGames={setGames} deleteGame={deleteGame} />
+          }
+        />
+        <Route path="/game/:id" element={<Game />} />
       </Routes>
 
       {/* <Form setGames={setGames} games={games} /> */}
