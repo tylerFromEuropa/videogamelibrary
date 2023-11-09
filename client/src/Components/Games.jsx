@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 export default function Games({ games, deleteGame }) {
   const reversedGames = games.toReversed();
   console.log(reversedGames);
+
   return reversedGames.map((game) => {
     return (
       <div key={game._id} className="game">
