@@ -55,6 +55,11 @@ fieldset,
   margin: 0px;
   border: none;
 }
+
+.gameslist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 .game {
   margin: 20px 20px;
   padding: 20px 20px;
