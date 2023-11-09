@@ -5,13 +5,11 @@ import axios from "axios";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Games from "../Components/Games";
 
-export default function Home({games, setGames, deleteGame}) {
-
+export default function Home({ games, setGames, deleteGame }) {
   return (
     <>
-    <Form setGames={setGames} games={games} deleteGame={deleteGame}/>
-    <Games games={games} deleteGame={deleteGame}/>  
+      <Form setGames={setGames} games={games} deleteGame={deleteGame} />
+      <Games games={games} deleteGame={deleteGame} />
     </>
-  )
-
+  );
 }

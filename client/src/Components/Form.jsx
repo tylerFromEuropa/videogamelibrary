@@ -43,7 +43,6 @@ export default function Form({ setGames, games, game, setGame, getGame }) {
 
   return (
     <form onSubmit={game?.title ? updateGame : addGame}>
-      <h2>Create a new entry</h2>
       <div className="formfields">
         <div className="formpart">
           <input
