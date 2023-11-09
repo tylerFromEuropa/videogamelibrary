@@ -9,6 +9,11 @@ import Game from "./Page/Game";
 
 function App() {
   const [games, setGames] = useState([]);
+  let byebyebye = new Audio("/byebyebye.mp3");
+  byebyebye.volume = 0.1;
+  const playByebyebye = () => {
+    byebyebye.play();
+  };
   useEffect(() => {
     getGames();
   }, []);
@@ -25,6 +30,7 @@ function App() {
       const API = `http://localhost:8080/games/${id}`;
       await axios.delete(API);
       getGames();
+      playByebyebye();
     }
   }
 
